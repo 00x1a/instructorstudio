@@ -19,7 +19,7 @@ services:
     container_name: server-container
     image: inst-server
     build:
-      dockerfile: dockerfile.dev
+      dockerfile: dockerfile.prd
     depends_on:
       - mongodb
     ports:

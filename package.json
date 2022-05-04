@@ -4,7 +4,7 @@
   "description": "A simple app for instructors to manage, present and sell their courses.",
   "main": "app.js",
   "scripts": {
-    "prepare": "simple-git-hooks",
+    "prepare": "[ \"$NODE_ENV\" = production ] && exit 0; simple-git-hooks",
     "lint": "standard --verbose | snazzy",
     "format": "standard --fix | snazzy",
     "dev": "nodemon index.js",
