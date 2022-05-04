@@ -1,4 +1,5 @@
 const User = require('./../models/user-model')
+const API = require('./../api')
 
 // //////////////////////////////////////////////////////////////////
 // GET all users
@@ -6,48 +7,19 @@ const User = require('./../models/user-model')
 exports.getAllUsers = async (req, res) => {
   try {
     // //////////////////////////////////////////////////////////////////
-    // BUILD QUERY
-
-    // filters
-    const queryObject = { ...req.query } // hardcopy instead of reference
-    const excludedFields = ['fields', 'page', 'sort', 'limit'] // exclude advanced query properties to not pollute .find() method
-    excludedFields.forEach(el => delete queryObject[el])
-
-    let query = User.find(queryObject)
-
-    // sorting
-    if (req.query.sort) {
-      const sortByMultiple = req.query.sort.split(',').join(' ') // can not have a space in URL
-      query = query.sort(sortByMultiple)
-    } else {
-      query = query.sort('-createdAt') // default sorting newest first
-    }
-
-    // field limiting
-    if (req.query.fields) {
-      const limitedFields = req.query.fields.split(',').join(' ') // can not have a space in URL
-      query = query.select(limitedFields)
-    } else {
-      query = query.select('-__v') // default remove mongo NUB exposure
-    }
-
-    // pagination
-    const page = req.query.page * 1 || 1
-    const limit = req.query.limit * 1 || 1000
-    const skipOutput = (page - 1) * limit
-
-    if (req.query.page) {
-      const totalUsers = await User.countDocuments()
-      if (skipOutput >= totalUsers) throw new Error('This page does not exist')
-    }
-    query = query.skip(skipOutput).limit(limit)
+    // Build query
+    const api = new API(User.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate()
 
     // //////////////////////////////////////////////////////////////////
-    // EXECUTE QUERY
-    const allUsers = await query
+    // Execute query
+    const allUsers = await api.query
 
     // //////////////////////////////////////////////////////////////////
-    // SEND RESPONSE
+    // Send response
     res
       .status(200)
       .json({

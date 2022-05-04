@@ -37,12 +37,12 @@ To test the API and its features there is a `insomnia-example-queries.json` file
 ## Project Roadmap
 The following enhancements are already a work in progress and hopefully within the next 2 weeks I will:
 
-- Add a lot of functionality to the application. Instructors will be able to create courses and classes, users will be able to attend, rate and review courses.
-- Refactor API components
-- Add [passport](https://github.com/jaredhanson/passport) authentication
-- Add a nice looking [vue](https://github.com/vuejs/core) frontend
-- Improve error handling
-- Add [jest](https://github.com/facebook/jest) with thoughtful test scripts
-- Add [lint-staged](https://github.com/okonet/lint-staged) so git hooks will be limited to staged files
-- Deploy the application to [Google Cloud Run](https://cloud.google.com/run)
-- Ask Armagan and Steve for forgiveness
+- [ ] Add a lot of functionality to the application. Instructors will be able to create courses and classes, users will be able to attend, rate and review courses.
+- [x] Refactor API components
+- [ ]Add [passport](https://github.com/jaredhanson/passport) authentication
+- [ ] Add a nice looking [vue](https://github.com/vuejs/core) frontend
+- [ ] Improve error handling
+- [ ] Add [jest](https://github.com/facebook/jest) with thoughtful test scripts
+- [ ] Add [lint-staged](https://github.com/okonet/lint-staged) so git hooks will be limited to staged files
+- [ ] Deploy the application to [Google Cloud Run](https://cloud.google.com/run)
+- [ ] Ask Armagan and Steve for forgiveness

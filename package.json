@@ -1,6 +1,6 @@
 {
   "name": "instructorstudio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple app for instructors to manage, present and sell their courses.",
   "main": "app.js",
   "scripts": {
