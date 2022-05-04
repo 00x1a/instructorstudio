@@ -1,0 +1,38 @@
+services:
+
+  # Mongodb
+  mongodb:
+    container_name: mongodb-container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - inst-network
+    volumes:
+      - mongodbdata:/data/db
+    env_file:
+      - .env
+
+  # Node.js server
+  server:
+    container_name: server-container
+    image: inst-server
+    build:
+      dockerfile: dockerfile.dev
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+    networks:
+      - inst-network
+    volumes:
+      - ./:/app
+
+networks:
+  inst-network:
+    driver: bridge
+
+volumes:
+  mongodbdata:
+    driver: local

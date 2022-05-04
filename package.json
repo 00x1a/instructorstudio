@@ -1,0 +1,44 @@
+{
+  "name": "instructorstudio",
+  "version": "0.0.1",
+  "description": "A simple app for instructors to manage, present and sell their courses.",
+  "main": "app.js",
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "lint": "standard --verbose | snazzy",
+    "format": "standard --fix | snazzy",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/00x1a/instructorstudio"
+  },
+  "author": "00x1a",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/00x1a/instructorstudio/issues"
+  },
+  "homepage": "https://github.com/00x1a/instructorstudio#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "simple-git-hooks": "^2.7.0",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0",
+    "morgan": "^1.10.0"
+  },
+  "standard": {
+    "ignore": [
+      "mongo-init.js"
+    ]
+  }
+}

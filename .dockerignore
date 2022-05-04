@@ -1,0 +1,22 @@
+# Configuration
+.env
+
+# git
+.git
+.gitignore
+
+# Dependencies
+node_modules
+
+# Dockerfiles
+.dockerignore
+docker-compose.dev
+docker-compose.prd
+dockerfile.dev
+dockerfile.prd
+dockernuke.sh
+
+# NUBs
+README.md
+LICENSE
+insomnia-example-queries.json

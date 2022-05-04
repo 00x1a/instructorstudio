@@ -1,0 +1,8 @@
+# Configuration
+.env
+
+# Dependencies
+node_modules
+
+# Tools
+dockernuke.sh

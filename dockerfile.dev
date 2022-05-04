@@ -1,0 +1,10 @@
+FROM node:alpine
+WORKDIR /app
+
+ARG NODE_ENV=development
+ENV NODE_ENV $NODE_ENV
+
+ADD package.json /app/
+ADD package-lock.json /app/
+RUN npm install
+CMD [ "npm", "run", "dev" ]
